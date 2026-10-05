@@ -1,1 +1,42 @@
-<%= @user.to_json %>
+<!--
+  <form action="/users" method="post" accept-charset="UTF-8" data-turbo=false>
+    <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%# form_authenticity_token %>"
+    />
+    <p>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user[name]">
+    </p>
+    <p>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="user[email]">
+    </p>
+    <p>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="user[password]">
+    </p>
+    <p>
+      <input type="submit" value="Submit">
+    </p>
+  </form>
+-->
+
+<%= form_with model: @user do |form| %>
+  <p>
+    <%= form.label :name, "Enter your name:" %>
+    <%= form.text_field :name, value: "Bob" %>
+  </p>
+  <p>
+    <%= form.label :email, "Enter your email:" %>
+    <%= form.email_field :email, placeholder: "you@example.com" %>
+  </p>
+  <p>
+    <%= form.label :password, "Enter a password:" %>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
