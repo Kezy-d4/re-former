@@ -24,6 +24,16 @@
 -->
 
 <%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |err| %>
+        <li>
+          <%= err %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <p>
     <%= form.label :name, "Enter your name:" %>
     <%= form.text_field :name, value: "Bob" %>
